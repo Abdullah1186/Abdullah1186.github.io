@@ -55,11 +55,5 @@
   window.initMolecules = function () {
     /* Full-page background molecule — caffeine */
     createViewer('mol-bg', 2519, { bg: 'transparent', speed: 0.5, zoom: 0.7 });
-
-    /* Publication card — Aspirin */
-    createViewer('pub-mol', 2244, { bg: '#0a0e1a', speed: 1 });
-
-    /* Papers / Thesis — Ibuprofen */
-    createViewer('thesis-mol', 3672, { bg: '#0a0e1a', speed: 0.8, surface: true });
   };
 })();

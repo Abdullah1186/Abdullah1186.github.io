@@ -410,10 +410,6 @@ nav.scrolled {
 /* pub-body: the right side of the 4px | body grid */
 .pub-body {
   padding: 36px;
-  display: grid;
-  grid-template-columns: 1fr 210px;
-  gap: 32px;
-  align-items: start;
 }
 
 .pub-main { min-width: 0; }
@@ -674,14 +670,11 @@ nav.scrolled {
 .paper-card:hover { border-color: var(--border-primary); box-shadow: var(--shadow-card); }
 
 .paper-inner {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 0;
+  padding: 36px;
 }
 
 .paper-body {
-  padding: 36px;
-  border-right: 1px solid var(--border-secondary);
+  padding: 0;
 }
 
 .paper-type-label {
