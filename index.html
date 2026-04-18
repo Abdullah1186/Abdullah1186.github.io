@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdulla Al-Fekaiki — Chemistry Researcher | Molecule Generation</title>
+  <title>Abdulla Al-Fekaiki &mdash; Chemistry Researcher | Molecule Generation</title>
   <meta name="description" content="Chemistry researcher specialising in generative models for 3D molecule generation, deep learning, and chemical space exploration. University of Warwick.">
   <meta name="keywords" content="molecule generation, generative models, deep learning, chemistry, computational chemistry, G-SchNet, GeoLDM, EDM, Warwick, JCIM">
   <meta name="author" content="Abdulla Al-Fekaiki">
 
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Abdulla Al-Fekaiki — Chemistry Researcher">
-  <meta property="og:description" content="Generative models for molecular design · Deep learning · Chemical space exploration">
+  <meta property="og:title" content="Abdulla Al-Fekaiki &mdash; Chemistry Researcher">
+  <meta property="og:description" content="Generative models for molecular design &middot; Deep learning &middot; Chemical space exploration">
   <meta property="og:url" content="https://abdullah1186.github.io">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+
+<!-- Global particle background (covers entire page) -->
+<canvas id="bg-canvas"></canvas>
 
 <!-- ── NAVIGATION ── -->
 <nav>
@@ -49,6 +52,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#papers">Papers</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -65,6 +69,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#papers">Papers</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -72,10 +77,7 @@
 
 <!-- ── HERO ── -->
 <section id="hero">
-  <canvas id="hero-canvas"></canvas>
-
   <div class="hero-inner">
-    <!-- Left -->
     <div class="hero-left">
       <div class="hero-typing">
         <span class="prompt">&gt;&nbsp;</span>
@@ -103,13 +105,11 @@
       </div>
     </div>
 
-    <!-- Right: rotating molecule -->
     <div class="hero-mol-wrap">
       <div class="mol-viewer-container">
         <div class="mol-loader"></div>
         <div id="hero-mol" style="width:100%;height:100%;"></div>
       </div>
-      <p class="mol-label">Caffeine &middot; C&#8328;H&#8321;&#8320;N&#8324;O&#8322;</p>
     </div>
   </div>
 </section>
@@ -134,33 +134,30 @@
         </p>
 
         <div class="quick-facts" data-aos="fade-up" data-aos-delay="150">
-          <div class="fact-chip">
-            <i class="fas fa-university"></i>
-            University of Warwick
-          </div>
-          <div class="fact-chip">
-            <i class="fas fa-graduation-cap"></i>
-            Masters of Chemistry
-          </div>
-          <div class="fact-chip">
-            <i class="fas fa-brain"></i>
-            Deep Learning
-          </div>
-          <div class="fact-chip">
-            <i class="fas fa-atom"></i>
-            3D Generative Models
-          </div>
-          
+          <div class="fact-chip"><i class="fas fa-university"></i> University of Warwick</div>
+          <div class="fact-chip"><i class="fas fa-graduation-cap"></i> Masters of Chemistry</div>
+          <div class="fact-chip"><i class="fas fa-brain"></i> Deep Learning</div>
+          <div class="fact-chip"><i class="fas fa-atom"></i> 3D Generative Models</div>
         </div>
 
-        
+        <div class="skills-row" data-aos="fade-up" data-aos-delay="200">
+          <span class="badge">PyTorch</span>
+          <span class="badge">RDKit</span>
+          <span class="badge">Python</span>
+          <span class="badge badge-purple">G-SchNet</span>
+          <span class="badge badge-purple">GeoLDM</span>
+          <span class="badge badge-purple">EDM</span>
+          <span class="badge badge-green">JCIM</span>
+          <span class="badge badge-green">Chemical Space</span>
+          <span class="badge">3D ML</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── RESEARCH INTERESTS ── -->
-<section id="research" class="section-padding bg-alt">
+<section id="research" class="section-padding">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <span class="section-label">What I work on</span>
@@ -169,25 +166,23 @@
     </div>
 
     <div class="research-grid">
-      <!-- Card 1 -->
-      <div class="research-card" data-tilt>
+      <div class="research-card" data-tilt data-aos="fade-up" data-aos-delay="100">
         <div class="research-icon">
           <i class="fas fa-cube"></i>
         </div>
         <h3>3D Molecule Generation</h3>
         <p>
-          Developing and evaluating deep generative models &mdash; including autoregressive models (G-SchNet) and equivariant diffusion models (GeoLDM, EDM) &mdash; for generating valid 3D organic molecules. I investigate how these models learn the geometry of chemical space and where structural biases arise, with validity, novelty, and chemical-space fidelity as core metrics.
+          Developing and evaluating deep generative models &mdash; including autoregressive models (G-SchNet) and equivariant diffusion models (GeoLDM, EDM) &mdash; for generating valid 3D organic molecules. I investigate structural biases with validity, novelty, and chemical-space fidelity as core metrics.
         </p>
       </div>
 
-      <!-- Card 2 -->
-      <div class="research-card" data-tilt>
+      <div class="research-card" data-tilt data-aos="fade-up" data-aos-delay="200">
         <div class="research-icon purple">
           <i class="fas fa-language"></i>
         </div>
         <h3>AI for Language Learning</h3>
         <p>
-          Applying natural language processing and large language model techniques to language acquisition and education &mdash; exploring how AI can personalise and accelerate the process of learning new languages through adaptive feedback, generation, and modelling of learner knowledge states.
+          Applying natural language processing and large language model techniques to language acquisition and education &mdash; exploring how AI can personalise and accelerate the process of learning new languages through adaptive feedback and modelling of learner knowledge states.
         </p>
       </div>
     </div>
@@ -195,7 +190,7 @@
 </section>
 
 <!-- ── PUBLICATIONS ── -->
-<section id="publications" class="section-padding">
+<section id="publications" class="section-padding bg-alt">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <span class="section-label">Peer-reviewed work</span>
@@ -205,13 +200,12 @@
 
     <div class="pub-card" data-aos="fade-up">
       <div class="pub-accent-bar"></div>
-      <div class="pub-content">
-        <!-- Left: metadata -->
-        <div>
+      <div class="pub-body">
+
+        <div class="pub-main">
           <div class="pub-meta">
             <span class="badge badge-green">JCIM</span>
             <span class="badge">2025</span>
-            <span class="badge" style="font-family:var(--font-mono);font-size:0.7rem;">DOI: 10.1021/acs.jcim.5c00665</span>
           </div>
 
           <h3 class="pub-title">
@@ -226,10 +220,13 @@
 
           <p class="pub-journal">
             Journal of Chemical Information and Modeling &mdash; 2025
+            <span style="font-family:var(--font-mono);font-size:var(--text-xs);opacity:0.7;display:block;margin-top:2px;">
+              DOI: 10.1021/acs.jcim.5c00665
+            </span>
           </p>
 
           <div id="pub-abstract" class="abstract-text">
-            Three-dimensional deep generative models for molecule generation are increasingly used in property-driven molecular design. This work systematically investigates the structural biases that emerge in generated molecules from G-SchNet, GeoLDM, and EDM &mdash; examining elemental composition, functional group distributions, size and weight distributions, saturation levels, and chemical space coverage relative to their training datasets. Significant shared biases identified include the overexpression of heteroatoms across all three models, the overexpression of disconnected molecules by EDM and GeoLDM, and the generation of overly heavy molecules by G-SchNet.
+            Three-dimensional deep generative models for molecule generation are increasingly used in property-driven molecular design. This work systematically investigates the structural biases that emerge in generated molecules from G-SchNet, GeoLDM, and EDM &mdash; examining elemental composition, functional group distributions, size and weight, saturation, and chemical space coverage relative to training datasets. The most significant biases found include overexpression of heteroatoms across all three models, overexpression of disconnected molecules by EDM and GeoLDM, and generation of overly heavy molecules by G-SchNet.
           </div>
           <button class="abstract-toggle" data-target="pub-abstract">&#8595; Read more</button>
 
@@ -249,15 +246,72 @@
           </div>
         </div>
 
-        <!-- Right: molecule viewer -->
         <div class="pub-mol-wrap">
           <div class="pub-mol-container">
             <div class="mol-loader"></div>
             <div id="pub-mol" style="width:100%;height:100%;"></div>
           </div>
-          <p class="pub-mol-label">Aspirin &middot; C&#8329;H&#8328;O&#8324;</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" class="section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Things I have built</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+        <div class="project-header">
+          <div class="project-icon"><i class="fas fa-atom"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/Abdullah1186" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <h3 class="project-title">Structural Bias Analysis in 3D Molecular Generative Models</h3>
+        <p class="project-desc">
+          Systematic evaluation of G-SchNet, GeoLDM, and EDM against training datasets (QM9, GEOM-drugs) measuring elemental composition, functional group distributions, saturation, and chemical space coverage.
+        </p>
+        <div class="project-tags">
+          <span class="badge">Python</span>
+          <span class="badge badge-purple">G-SchNet</span>
+          <span class="badge badge-purple">GeoLDM</span>
+          <span class="badge badge-purple">EDM</span>
+          <span class="badge badge-green">RDKit</span>
         </div>
       </div>
+
+      <!-- Placeholder card — update with your real projects -->
+      <div class="project-card project-placeholder" data-tilt data-aos="fade-up" data-aos-delay="200">
+        <div class="project-header">
+          <div class="project-icon purple"><i class="fas fa-language"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/Abdullah1186" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <h3 class="project-title">AI Language Learning</h3>
+        <p class="project-desc">
+          Applying NLP and large language model techniques to adaptive language learning &mdash; personalised feedback and learner knowledge state modelling.
+        </p>
+        <div class="project-tags">
+          <span class="badge">Python</span>
+          <span class="badge badge-purple">NLP</span>
+          <span class="badge badge-green">LLMs</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -272,8 +326,6 @@
     </div>
 
     <div class="papers-list">
-
-      <!-- Thesis card -->
       <div class="paper-card" data-aos="fade-up">
         <div class="paper-inner">
           <div class="paper-body">
@@ -291,26 +343,23 @@
             <div id="thesis-abstract" class="paper-abstract">
               The emergence of 3D deep generative models for novel molecule generation has promising prospects for improving, aiding and accelerating processes of property-driven molecular design. Currently, these models are measured through the validity, uniqueness and novelty of their generated molecules. However, there are many discrepancies with the definition of validity in molecular modelling, along with emerging work showing structural biases in the molecules generated. Because of this, the need to investigate how well these models recreate the training data&rsquo;s chemical space is increasingly important, if they are to be reliably applied in real-world molecular property-driven design. Here, I investigate three deep generative models, G-SchNet, GeoLDM and EDM, with regard to their ability to replicate the chemical spaces covered by training datasets of both small, simple molecules and larger, complex, and elementally diverse molecules. I investigate elemental composition and distribution, functional group distribution, size and weight distribution, level of saturation, and chemical space distribution for all training datasets and all models&rsquo; generated molecules, finding both shared biases across models and biases unique to specific models. The most significant and noticeable biases are the overexpression of heteroatoms in all 3 models, the overexpression of disconnected molecules by EDM and GeoLDM, and the generation of overly heavy molecules with G-SchNet.
             </div>
-            <button class="abstract-toggle paper-toggle" data-target="thesis-abstract">&#8595; Read more</button>
+            <button class="abstract-toggle" data-target="thesis-abstract">&#8595; Read more</button>
 
-            <div class="pub-actions" style="margin-top:8px;">
+            <div class="pub-actions" style="margin-top:16px;">
               <a href="https://www.linkedin.com/posts/abdulla-al-fekaiki-68a99a19b_mchem-thesis-ugcPost-7346622453256773633-bGXy" target="_blank" rel="noopener" class="pub-action-btn">
                 <i class="fab fa-linkedin"></i> View on LinkedIn
               </a>
             </div>
           </div>
 
-          <!-- Molecule viewer -->
           <div class="paper-mol-wrap">
             <div class="paper-mol-container">
               <div class="mol-loader"></div>
               <div id="thesis-mol" style="width:100%;height:100%;"></div>
             </div>
-            <p class="paper-mol-label">Ibuprofen &middot; C&#8321;&#8323;H&#8321;&#8328;O&#8322;</p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -325,7 +374,7 @@
     </div>
 
     <p style="text-align:center;color:var(--text-secondary);max-width:560px;margin:0 auto 40px;font-size:var(--text-lg);" data-aos="fade-up">
-      Open to research collaborations, discussions about molecule generation and generative models, or questions about published work.
+      Open to research collaborations, discussions about molecule generation, or questions about published work.
     </p>
 
     <div class="contact-grid" style="max-width:700px;margin:0 auto 48px;" data-aos="fade-up" data-aos-delay="100">
@@ -361,7 +410,7 @@
 
     <div class="contact-form-wrap" data-aos="fade-up" data-aos-delay="150">
       <h3>Send a Message</h3>
-      <!-- TODO: Replace YOUR_FORM_ID after registering at formspree.io -->
+      <!-- TODO: Replace YOUR_FORM_ID after registering free at formspree.io -->
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-group">
           <label for="name">Name</label>
@@ -379,7 +428,7 @@
           <i class="fas fa-paper-plane"></i> Send Message
         </button>
       </form>
-      <p class="form-note">Form powered by Formspree &mdash; no backend required</p>
+      <p class="form-note">Powered by Formspree &mdash; no backend required</p>
     </div>
   </div>
 </section>
@@ -391,18 +440,10 @@
     <p class="footer-role">Chemistry Researcher &middot; University of Warwick</p>
 
     <div class="footer-social">
-      <a href="mailto:abdullahalfekaiki@gmail.com" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://github.com/Abdullah1186" target="_blank" rel="noopener" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://scholar.google.com/citations?user=vPXLsEQAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/abdulla-al-fekaiki-68a99a19b/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
+      <a href="mailto:abdullahalfekaiki@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Abdullah1186" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=vPXLsEQAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://www.linkedin.com/in/abdulla-al-fekaiki-68a99a19b/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
 
     <div class="footer-divider"></div>
@@ -412,13 +453,9 @@
   </div>
 </footer>
 
-<!-- Toast notification -->
 <div id="toast"><i class="fas fa-check" style="margin-right:8px;"></i>BibTeX copied to clipboard!</div>
-
-<!-- Scroll to top -->
 <button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
 
-<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
