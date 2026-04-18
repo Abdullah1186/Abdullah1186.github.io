@@ -66,17 +66,17 @@ body {
   pointer-events: none;
 }
 
-/* Single large centred background molecule */
+/* Caffeine molecule — fixed bottom-right corner */
 #mol-bg-wrap {
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 780px;
-  height: 780px;
+  right: -40px;
+  bottom: -40px;
+  width: 320px;
+  height: 320px;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.13;
+  opacity: 0.22;
+  animation: float 7s ease-in-out infinite;
 }
 
 #mol-bg {
@@ -85,7 +85,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  #mol-bg-wrap { width: 420px; height: 420px; opacity: 0.09; }
+  #mol-bg-wrap { width: 200px; height: 200px; right: -20px; bottom: -20px; opacity: 0.15; }
 }
 
 /* Everything else sits above */
