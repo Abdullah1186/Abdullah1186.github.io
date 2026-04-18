@@ -53,9 +53,6 @@
   }
 
   window.initMolecules = function () {
-    createViewer('mol-bg',  2519, { bg: 'transparent', speed: 0.5,  zoom: 0.7  }); /* caffeine  */
-    createViewer('mol-bg2',  681, { bg: 'transparent', speed: 0.35, zoom: 0.75 }); /* dopamine  */
-    createViewer('mol-bg3',  241, { bg: 'transparent', speed: 0.7,  zoom: 0.8  }); /* benzene   */
-    createViewer('mol-bg4', 2244, { bg: 'transparent', speed: 0.45, zoom: 0.72 }); /* aspirin   */
+    createViewer('mol-bg', 2519, { bg: 'transparent', speed: 0.4, zoom: 0.65 }); /* caffeine */
   };
 })();

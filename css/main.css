@@ -66,69 +66,26 @@ body {
   pointer-events: none;
 }
 
-/* Fixed background molecule shared styles */
-#mol-bg-wrap,
-#mol-bg2-wrap,
-#mol-bg3-wrap,
-#mol-bg4-wrap {
+/* Single large centred background molecule */
+#mol-bg-wrap {
   position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 780px;
+  height: 780px;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.13;
 }
 
-#mol-bg-wrap  > div,
-#mol-bg2-wrap > div,
-#mol-bg3-wrap > div,
-#mol-bg4-wrap > div {
+#mol-bg {
   width: 100%;
   height: 100%;
 }
 
-/* Caffeine — right-centre */
-#mol-bg-wrap {
-  right: -80px;
-  top: calc(50% - 260px);
-  width: 520px;
-  height: 520px;
-  opacity: 0.16;
-  animation: float 7s ease-in-out infinite;
-}
-
-/* Dopamine — bottom-left */
-#mol-bg2-wrap {
-  left: -100px;
-  bottom: 5%;
-  width: 420px;
-  height: 420px;
-  opacity: 0.13;
-  animation: float 9s ease-in-out infinite reverse;
-}
-
-/* Benzene — top-left */
-#mol-bg3-wrap {
-  left: -60px;
-  top: 8%;
-  width: 340px;
-  height: 340px;
-  opacity: 0.12;
-  animation: float 11s ease-in-out infinite;
-}
-
-/* Aspirin — far right, lower */
-#mol-bg4-wrap {
-  right: -60px;
-  bottom: 15%;
-  width: 380px;
-  height: 380px;
-  opacity: 0.11;
-  animation: float 8s ease-in-out infinite reverse;
-}
-
 @media (max-width: 768px) {
-  #mol-bg-wrap  { width: 280px; height: 280px; right: -60px; opacity: 0.10; }
-  #mol-bg2-wrap { width: 220px; height: 220px; left: -60px;  opacity: 0.08; }
-  #mol-bg3-wrap { display: none; }
-  #mol-bg4-wrap { display: none; }
+  #mol-bg-wrap { width: 420px; height: 420px; opacity: 0.09; }
 }
 
 /* Everything else sits above */
