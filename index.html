@@ -1,1 +1,444 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdulla Al-Fekaiki — Chemistry Researcher | Molecule Generation</title>
+  <meta name="description" content="Chemistry researcher specialising in generative models for 3D molecule generation, deep learning, and chemical space exploration. University of Warwick.">
+  <meta name="keywords" content="molecule generation, generative models, deep learning, chemistry, computational chemistry, G-SchNet, GeoLDM, EDM, Warwick, JCIM">
+  <meta name="author" content="Abdulla Al-Fekaiki">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Abdulla Al-Fekaiki — Chemistry Researcher">
+  <meta property="og:description" content="Generative models for molecular design · Deep learning · Chemical space exploration">
+  <meta property="og:url" content="https://abdullah1186.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <svg class="benzene-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,4 54,17 54,43 30,56 6,43 6,17" stroke="#4fc3f7" stroke-width="2.5" fill="none"/>
+        <circle cx="30" cy="4"  r="3.5" fill="#4fc3f7"/>
+        <circle cx="54" cy="17" r="3.5" fill="#4fc3f7"/>
+        <circle cx="54" cy="43" r="3.5" fill="#4fc3f7"/>
+        <circle cx="30" cy="56" r="3.5" fill="#4fc3f7"/>
+        <circle cx="6"  cy="43" r="3.5" fill="#4fc3f7"/>
+        <circle cx="6"  cy="17" r="3.5" fill="#4fc3f7"/>
+        <circle cx="30" cy="30" r="7" stroke="#4fc3f7" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+      </svg>
+      Al-Fekaiki
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#papers">Papers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+
+  <div class="hero-inner">
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-typing">
+        <span class="prompt">&gt;&nbsp;</span>
+        <span id="typing-text">Chemistry Researcher</span>
+        <span class="cursor"></span>
+      </div>
+
+      <h1 class="hero-name gradient-text">Abdulla<br>Al-Fekaiki</h1>
+
+      <p class="hero-subtitle">
+        <strong>3D Molecule Generation</strong> &middot; Deep Learning &middot; Chemical Space
+      </p>
+
+      <p class="hero-bio">
+        Chemistry researcher specialising in generative models that navigate the geometry of chemical space &mdash; building and evaluating 3D autoregressive and diffusion-based models for organic molecule design.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#publications" class="btn btn-primary">
+          <i class="fas fa-flask"></i> View Publications
+        </a>
+        <a href="https://scholar.google.com/citations?user=vPXLsEQAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-secondary">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: rotating molecule -->
+    <div class="hero-mol-wrap">
+      <div class="mol-viewer-container">
+        <div class="mol-loader"></div>
+        <div id="hero-mol" style="width:100%;height:100%;"></div>
+      </div>
+      <p class="mol-label">Caffeine &middot; C&#8328;H&#8321;&#8320;N&#8324;O&#8322;</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Who I am</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <div class="about-grid">
+      <div data-aos="fade-right">
+        <div class="avatar-circle">AA</div>
+      </div>
+
+      <div>
+        <p class="about-bio" data-aos="fade-up" data-aos-delay="100">
+          I am a chemistry researcher (MChem, University of Warwick) working at the intersection of deep learning and molecular science. My research focuses on 3D generative models for organic molecule generation &mdash; specifically investigating structural biases in autoregressive and diffusion-based models such as G-SchNet, GeoLDM, and EDM, and how faithfully these models reproduce the chemical spaces of their training data.
+        </p>
+
+        <div class="quick-facts" data-aos="fade-up" data-aos-delay="150">
+          <div class="fact-chip">
+            <i class="fas fa-university"></i>
+            University of Warwick
+          </div>
+          <div class="fact-chip">
+            <i class="fas fa-graduation-cap"></i>
+            MChem Chemistry
+          </div>
+          <div class="fact-chip">
+            <i class="fas fa-brain"></i>
+            Deep Learning
+          </div>
+          <div class="fact-chip">
+            <i class="fas fa-atom"></i>
+            Generative Models
+          </div>
+          <div class="fact-chip">
+            <i class="fas fa-dna"></i>
+            Molecule Generation
+          </div>
+        </div>
+
+        <div class="skills-row" data-aos="fade-up" data-aos-delay="200">
+          <span class="badge">PyTorch</span>
+          <span class="badge">RDKit</span>
+          <span class="badge">Python</span>
+          <span class="badge badge-purple">G-SchNet</span>
+          <span class="badge badge-purple">GeoLDM</span>
+          <span class="badge badge-purple">EDM</span>
+          <span class="badge badge-green">JCIM</span>
+          <span class="badge badge-green">Chemical Space</span>
+          <span class="badge">3D ML</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH INTERESTS ── -->
+<section id="research" class="section-padding bg-alt">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">What I work on</span>
+      <h2 class="section-title">Research Interests</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <div class="research-grid">
+      <!-- Card 1 -->
+      <div class="research-card" data-tilt>
+        <div class="research-icon">
+          <i class="fas fa-cube"></i>
+        </div>
+        <h3>3D Molecule Generation</h3>
+        <p>
+          Developing and evaluating deep generative models &mdash; including autoregressive models (G-SchNet) and equivariant diffusion models (GeoLDM, EDM) &mdash; for generating valid 3D organic molecules. I investigate how these models learn the geometry of chemical space and where structural biases arise, with validity, novelty, and chemical-space fidelity as core metrics.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="research-card" data-tilt>
+        <div class="research-icon purple">
+          <i class="fas fa-language"></i>
+        </div>
+        <h3>AI for Language Learning</h3>
+        <p>
+          Applying natural language processing and large language model techniques to language acquisition and education &mdash; exploring how AI can personalise and accelerate the process of learning new languages through adaptive feedback, generation, and modelling of learner knowledge states.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications" class="section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Peer-reviewed work</span>
+      <h2 class="section-title">Publications</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <div class="pub-card" data-aos="fade-up">
+      <div class="pub-accent-bar"></div>
+      <div class="pub-content">
+        <!-- Left: metadata -->
+        <div>
+          <div class="pub-meta">
+            <span class="badge badge-green">JCIM</span>
+            <span class="badge">2025</span>
+            <span class="badge" style="font-family:var(--font-mono);font-size:0.7rem;">DOI: 10.1021/acs.jcim.5c00665</span>
+          </div>
+
+          <h3 class="pub-title">
+            Structural bias in three-dimensional autoregressive generative machine learning of organic molecules
+          </h3>
+
+          <p class="pub-authors">
+            Z. Koczor-Benda, J. Gilkes, F. Bartucca,
+            <span class="me">A. Al-Fekaiki</span>,
+            R.J. Maurer
+          </p>
+
+          <p class="pub-journal">
+            Journal of Chemical Information and Modeling &mdash; 2025
+          </p>
+
+          <div id="pub-abstract" class="abstract-text">
+            Three-dimensional deep generative models for molecule generation are increasingly used in property-driven molecular design. This work systematically investigates the structural biases that emerge in generated molecules from G-SchNet, GeoLDM, and EDM &mdash; examining elemental composition, functional group distributions, size and weight distributions, saturation levels, and chemical space coverage relative to their training datasets. Significant shared biases identified include the overexpression of heteroatoms across all three models, the overexpression of disconnected molecules by EDM and GeoLDM, and the generation of overly heavy molecules by G-SchNet.
+          </div>
+          <button class="abstract-toggle" data-target="pub-abstract">&#8595; Read more</button>
+
+          <div class="pub-actions">
+            <a href="https://pubs.acs.org/doi/full/10.1021/acs.jcim.5c00665" target="_blank" rel="noopener" class="pub-action-btn">
+              <i class="fas fa-external-link-alt"></i> ACS Link
+            </a>
+            <a href="https://doi.org/10.1021/acs.jcim.5c00665" target="_blank" rel="noopener" class="pub-action-btn">
+              <i class="fas fa-link"></i> DOI
+            </a>
+            <button id="copy-bibtex" class="pub-action-btn">
+              <i class="fas fa-quote-right"></i> Cite (BibTeX)
+            </button>
+            <a href="https://scholar.google.com/citations?user=vPXLsEQAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-action-btn">
+              <i class="fas fa-graduation-cap"></i> Scholar
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: molecule viewer -->
+        <div class="pub-mol-wrap">
+          <div class="pub-mol-container">
+            <div class="mol-loader"></div>
+            <div id="pub-mol" style="width:100%;height:100%;"></div>
+          </div>
+          <p class="pub-mol-label">Aspirin &middot; C&#8329;H&#8328;O&#8324;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAPERS ── -->
+<section id="papers" class="section-padding bg-alt">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Theses &amp; preprints</span>
+      <h2 class="section-title">Papers</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <div class="papers-list">
+
+      <!-- Thesis card -->
+      <div class="paper-card" data-aos="fade-up">
+        <div class="paper-inner">
+          <div class="paper-body">
+            <span class="paper-type-label">Master&rsquo;s Thesis &middot; University of Warwick &middot; 2024</span>
+
+            <h3 class="paper-title">
+              Structural Bias in 3D Deep Generative Models for Molecular Generation
+            </h3>
+
+            <div class="paper-institution">
+              <i class="fas fa-university"></i>
+              University of Warwick &mdash; MChem Chemistry
+            </div>
+
+            <div id="thesis-abstract" class="paper-abstract">
+              The emergence of 3D deep generative models for novel molecule generation has promising prospects for improving, aiding and accelerating processes of property-driven molecular design. Currently, these models are measured through the validity, uniqueness and novelty of their generated molecules. However, there are many discrepancies with the definition of validity in molecular modelling, along with emerging work showing structural biases in the molecules generated. Because of this, the need to investigate how well these models recreate the training data&rsquo;s chemical space is increasingly important, if they are to be reliably applied in real-world molecular property-driven design. Here, I investigate three deep generative models, G-SchNet, GeoLDM and EDM, with regard to their ability to replicate the chemical spaces covered by training datasets of both small, simple molecules and larger, complex, and elementally diverse molecules. I investigate elemental composition and distribution, functional group distribution, size and weight distribution, level of saturation, and chemical space distribution for all training datasets and all models&rsquo; generated molecules, finding both shared biases across models and biases unique to specific models. The most significant and noticeable biases are the overexpression of heteroatoms in all 3 models, the overexpression of disconnected molecules by EDM and GeoLDM, and the generation of overly heavy molecules with G-SchNet.
+            </div>
+            <button class="abstract-toggle paper-toggle" data-target="thesis-abstract">&#8595; Read more</button>
+
+            <div class="pub-actions" style="margin-top:8px;">
+              <a href="https://www.linkedin.com/posts/abdulla-al-fekaiki-68a99a19b_mchem-thesis-ugcPost-7346622453256773633-bGXy" target="_blank" rel="noopener" class="pub-action-btn">
+                <i class="fab fa-linkedin"></i> View on LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Molecule viewer -->
+          <div class="paper-mol-wrap">
+            <div class="paper-mol-container">
+              <div class="mol-loader"></div>
+              <div id="thesis-mol" style="width:100%;height:100%;"></div>
+            </div>
+            <p class="paper-mol-label">Ibuprofen &middot; C&#8321;&#8323;H&#8321;&#8328;O&#8322;</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Get in touch</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <p style="text-align:center;color:var(--text-secondary);max-width:560px;margin:0 auto 40px;font-size:var(--text-lg);" data-aos="fade-up">
+      Open to research collaborations, discussions about molecule generation and generative models, or questions about published work.
+    </p>
+
+    <div class="contact-grid" style="max-width:700px;margin:0 auto 48px;" data-aos="fade-up" data-aos-delay="100">
+      <a href="mailto:abdullahalfekaiki@gmail.com" class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">abdullahalfekaiki@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://github.com/Abdullah1186" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">GitHub</div>
+          <div class="contact-card-value">@Abdullah1186</div>
+        </div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=vPXLsEQAAAAJ&hl=en" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">Google Scholar</div>
+          <div class="contact-card-value">Abdulla Al-Fekaiki</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/abdulla-al-fekaiki-68a99a19b/" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-card-icon"><i class="fab fa-linkedin"></i></div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">Abdulla Al-Fekaiki</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="contact-form-wrap" data-aos="fade-up" data-aos-delay="150">
+      <h3>Send a Message</h3>
+      <!-- TODO: Replace YOUR_FORM_ID after registering at formspree.io -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell me what's on your mind..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+      <p class="form-note">Form powered by Formspree &mdash; no backend required</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-name">Abdulla Al-Fekaiki</p>
+    <p class="footer-role">Chemistry Researcher &middot; University of Warwick</p>
+
+    <div class="footer-social">
+      <a href="mailto:abdullahalfekaiki@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://github.com/Abdullah1186" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=vPXLsEQAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/abdulla-al-fekaiki-68a99a19b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <div class="footer-divider"></div>
+    <p class="footer-copy">
+      Built with HTML, CSS &amp; 3Dmol.js &middot; Hosted on GitHub Pages &middot; &copy; 2025 Abdulla Al-Fekaiki
+    </p>
+  </div>
+</footer>
+
+<!-- Toast notification -->
+<div id="toast"><i class="fas fa-check" style="margin-right:8px;"></i>BibTeX copied to clipboard!</div>
+
+<!-- Scroll to top -->
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/molecules.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
