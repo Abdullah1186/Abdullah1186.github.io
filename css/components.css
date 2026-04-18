@@ -151,20 +151,13 @@ nav.scrolled {
   display: flex;
   align-items: center;
   background: transparent;
-  position: relative;
   padding-top: var(--nav-height);
 }
 
 .hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 60px;
-  align-items: center;
-  max-width: 1100px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 80px 24px;
   width: 100%;
 }
 
@@ -206,47 +199,19 @@ nav.scrolled {
   line-height: 1.5;
 }
 
-.hero-subtitle strong {
-  color: var(--accent-tertiary);
-  font-weight: 600;
-}
+.hero-subtitle strong { color: var(--accent-tertiary); font-weight: 600; }
 
 .hero-bio {
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   color: var(--text-secondary);
-  max-width: 520px;
-  margin-bottom: 36px;
-  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.85;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-.hero-mol-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.mol-viewer-container {
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  border: 1px solid var(--border-primary);
-  background: rgba(79, 195, 247, 0.03);
-  overflow: hidden;
-  position: relative;
-  animation: float 5s ease-in-out infinite;
-  box-shadow: 0 0 60px rgba(79, 195, 247, 0.12), inset 0 0 40px rgba(79, 195, 247, 0.04);
-}
-
-.mol-viewer-container canvas { border-radius: 50%; }
-
+/* Shared mol-loader for pub/thesis viewers */
 .mol-loader {
   position: absolute;
   inset: 0;
@@ -258,40 +223,31 @@ nav.scrolled {
 
 .mol-loader::after {
   content: '';
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(79, 195, 247, 0.2);
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(79,195,247,0.2);
   border-top-color: var(--accent-primary);
   border-radius: 50%;
   animation: molecule-spin 0.8s linear infinite;
 }
 
-.mol-label {
-  margin-top: 16px;
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--text-tertiary);
-  letter-spacing: 0.1em;
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-bio { margin-left: auto; margin-right: auto; }
-  .hero-actions { justify-content: center; }
-  .hero-mol-wrap { order: -1; }
-  .mol-viewer-container { width: 280px; height: 280px; }
+@media (max-width: 600px) {
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { justify-content: center; }
 }
 
 /* ── ABOUT ── */
 #about .about-grid {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 60px;
+  grid-template-columns: 180px 1fr;
+  gap: 56px;
   align-items: start;
+}
+
+@media (max-width: 700px) {
+  #about .about-grid { grid-template-columns: 1fr; text-align: center; }
+  .avatar-circle { margin: 0 auto; }
+  .quick-facts, .skills-row { justify-content: center; }
 }
 
 .avatar-circle {
