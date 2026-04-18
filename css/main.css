@@ -37,7 +37,7 @@
   --text-4xl:  clamp(2rem, 7vw, 2.8rem);
   --text-hero: clamp(2.8rem, 9vw, 5rem);
 
-  --nav-height: 70px;
+  --nav-height: 64px;
   --radius-sm:  6px;
   --radius-md:  12px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -105,7 +105,7 @@ a { color: var(--text-accent); text-decoration: none; transition: color var(--tr
 a:hover { color: var(--accent-primary); }
 img { max-width: 100%; display: block; }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
 .section-padding { padding: 100px 0; }
 
 .section-header { text-align: center; margin-bottom: 60px; }
@@ -258,6 +258,6 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .section-padding { padding: 70px 0; }
-  .container { padding: 0 16px; }
+  .container { padding: 0 20px; }
   #mol-bg-wrap { width: 300px; height: 300px; right: -60px; opacity: 0.12; }
 }
