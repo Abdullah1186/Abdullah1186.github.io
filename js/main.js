@@ -138,6 +138,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ── Molecules ── */
-  if (typeof initMolecules === 'function') initMolecules();
 });
