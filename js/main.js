@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ── Typing animation ── */
-  var phrases = ['Chemical Modelling Researcher', '3D Molecule Generation', 'Software Developer'];
+  var phrases = ['Chemical Modelling Researcher', 'Software Developer', 'Machine Learning Enthusiast'];
   var pi = 0, ci = 0, deleting = false;
   var typingEl = document.getElementById('typing-text');
   function type() {
