@@ -53,6 +53,6 @@
   }
 
   window.initMolecules = function () {
-    createViewer('mol-bg', 2519, { bg: 'transparent', speed: 0.5, zoom: 0.9 }); /* caffeine */
+    createViewer('hero-mol', 2519, { bg: 'transparent', speed: 0.9, zoom: 0.88 }); /* caffeine */
   };
 })();
