@@ -580,6 +580,25 @@ nav.scrolled {
 
 .project-card:hover::after { transform: scaleX(1); }
 
+.project-preview {
+  display: block;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform var(--transition);
+}
+
+.project-preview:hover img { transform: scale(1.03); }
+
 .project-header {
   display: flex;
   align-items: center;
